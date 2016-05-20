@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b2d9d2488aeb4f70aca3439aa79579e8" Name="Diagram1" >
+        <EntityTypeShape EntityType="JumperDb.User" Width="1.5" PointX="5" PointY="3" />
+        <EntityTypeShape EntityType="JumperDb.Zone" Width="1.5" PointX="9.375" PointY="3.625" />
+        <EntityTypeShape EntityType="JumperDb.Policy" Width="1.5" PointX="7.125" PointY="5" />
+        <AssociationConnector Association="JumperDb.UserZone" />
+        <AssociationConnector Association="JumperDb.ZonePolicy" />
+        <AssociationConnector Association="JumperDb.UserPolicy" />
+        <EntityTypeShape EntityType="JumperDb.Group" Width="1.5" PointX="2.875" PointY="5.25" />
+        <AssociationConnector Association="JumperDb.GroupUser" />
+        <AssociationConnector Association="JumperDb.GroupGroup" />
+        <AssociationConnector Association="JumperDb.PolicyGroup" />
+        <EntityTypeShape EntityType="JumperDb.Message" Width="1.5" PointX="7.25" PointY="1.875" />
+        <AssociationConnector Association="JumperDb.UserMessage" />
+        <EntityTypeShape EntityType="JumperDb.Ghost" Width="1.5" PointX="2.875" PointY="2.5" />
+        <AssociationConnector Association="JumperDb.GhostUser" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
