@@ -14,13 +14,19 @@ namespace Jumper.WebServer
     {
         #region Consts
 
-        const string POST_METHOD = "POST";
-        const string GET_METHOD = "GET";
-        const string PUT_METHOD = "PUT";
-        const string DELETE_METHOD = "DELETE";
+        const string METHOD_POST = "POST";
+        const string METHOD_GET = "GET";
+        const string METHOD_PUT = "PUT";
+        const string METHOD_DELETE = "DELETE";
 
-        const string EXAMPLE_URL = "/example";
-        
+        const string URL_REGISTER = "/register";
+        const string URL_MESSAGES = "/messages";
+        const string URL_USERS = "/users";
+        const string URL_GROUPS = "/groups";
+        const string URL_ZONES = "/zones";
+        const string URL_POLICIES = "/policies";
+        const string URL_GHOSTS = "/ghosts";
+
         const string JSON_TYPE = "application/json; charset=utf-8;";
 
         #endregion
@@ -57,23 +63,48 @@ namespace Jumper.WebServer
 
         #region Private Methods
 
-        #region General
+        #region Generic
 
         private void intializeResources()
         {
             Startup.Resources = new List<WebResource>();
 
             // gets.
-            Startup.Resources.Add(new WebResource { Path = EXAMPLE_URL, Method = GET_METHOD, Handler = getExample });
+            Startup.Resources.Add(new WebResource { Path = URL_MESSAGES, Method = METHOD_GET, Handler = getMessages });
+            Startup.Resources.Add(new WebResource { Path = URL_USERS, Method = METHOD_GET, Handler = getUsers });
+            Startup.Resources.Add(new WebResource { Path = URL_GROUPS, Method = METHOD_GET, Handler = getGroups });
+            Startup.Resources.Add(new WebResource { Path = URL_POLICIES, Method = METHOD_GET, Handler = getPolicies });
+            Startup.Resources.Add(new WebResource { Path = URL_ZONES, Method = METHOD_GET, Handler = getZones });
+            Startup.Resources.Add(new WebResource { Path = URL_GHOSTS, Method = METHOD_GET, Handler = getGhosts });
 
             // posts.
-            Startup.Resources.Add(new WebResource { Path = EXAMPLE_URL, Method = POST_METHOD, Handler = postExample });
+            Startup.Resources.Add(new WebResource { Path = URL_REGISTER, Method = METHOD_POST, Handler = postRegisters });
+            Startup.Resources.Add(new WebResource { Path = URL_MESSAGES, Method = METHOD_POST, Handler = postMessages});
+            Startup.Resources.Add(new WebResource { Path = URL_USERS, Method = METHOD_POST, Handler = postUsers });
+            Startup.Resources.Add(new WebResource { Path = URL_GROUPS, Method = METHOD_POST, Handler = postGroups });
+            Startup.Resources.Add(new WebResource { Path = URL_POLICIES, Method = METHOD_POST, Handler = postPolicies });
+            Startup.Resources.Add(new WebResource { Path = URL_ZONES, Method = METHOD_POST, Handler = postZones });
+            Startup.Resources.Add(new WebResource { Path = URL_GHOSTS, Method = METHOD_POST, Handler = postGhosts });
 
             // puts.
-            Startup.Resources.Add(new WebResource { Path = EXAMPLE_URL, Method = PUT_METHOD, Handler = putExample });
+            Startup.Resources.Add(new WebResource { Path = URL_REGISTER, Method = METHOD_PUT, Handler = putRegisters });
+            Startup.Resources.Add(new WebResource { Path = URL_MESSAGES, Method = METHOD_PUT, Handler = putMessages });
+            Startup.Resources.Add(new WebResource { Path = URL_USERS, Method = METHOD_PUT, Handler = putUsers });
+            Startup.Resources.Add(new WebResource { Path = URL_GROUPS, Method = METHOD_PUT, Handler = putGroups });
+            Startup.Resources.Add(new WebResource { Path = URL_POLICIES, Method = METHOD_PUT, Handler = putPolicies });
+            Startup.Resources.Add(new WebResource { Path = URL_ZONES, Method = METHOD_PUT, Handler = putZones });
+            Startup.Resources.Add(new WebResource { Path = URL_GHOSTS, Method = METHOD_PUT, Handler = putGhosts });
+
 
             // deletes.
-            Startup.Resources.Add(new WebResource { Path = EXAMPLE_URL, Method = DELETE_METHOD, Handler = deleteExample });
+            Startup.Resources.Add(new WebResource { Path = URL_REGISTER, Method = METHOD_DELETE, Handler = deleteRegisters });
+            Startup.Resources.Add(new WebResource { Path = URL_MESSAGES, Method = METHOD_DELETE, Handler = deleteMessages });
+            Startup.Resources.Add(new WebResource { Path = URL_USERS, Method = METHOD_DELETE, Handler = deleteUsers });
+            Startup.Resources.Add(new WebResource { Path = URL_GROUPS, Method = METHOD_DELETE, Handler = deleteGroups });
+            Startup.Resources.Add(new WebResource { Path = URL_POLICIES, Method = METHOD_DELETE, Handler = deletePolicies });
+            Startup.Resources.Add(new WebResource { Path = URL_ZONES, Method = METHOD_DELETE, Handler = deleteZones });
+            Startup.Resources.Add(new WebResource { Path = URL_GHOSTS, Method = METHOD_DELETE, Handler = deleteGhosts });
+
         }
 
         private void createWebResponse(Microsoft.Owin.IOwinContext context, string dataType, string data)
@@ -93,12 +124,67 @@ namespace Jumper.WebServer
 
         #region Get
 
-        private void getExample(Microsoft.Owin.IOwinContext context)
+        private void getUsers(Microsoft.Owin.IOwinContext context)
         {
             try
             {
                 JObject json = new JObject();
-                   
+
+                createWebResponse(context, JSON_TYPE, json.ToString());
+            }
+            catch (Exception) { }
+        }
+
+        private void getMessages(Microsoft.Owin.IOwinContext context)
+        {
+            try
+            {
+                JObject json = new JObject();
+
+                createWebResponse(context, JSON_TYPE, json.ToString());
+            }
+            catch (Exception) { }
+        }
+
+        private void getPolicies(Microsoft.Owin.IOwinContext context)
+        {
+            try
+            {
+                JObject json = new JObject();
+
+                createWebResponse(context, JSON_TYPE, json.ToString());
+            }
+            catch (Exception) { }
+        }
+
+        private void getGroups(Microsoft.Owin.IOwinContext context)
+        {
+            try
+            {
+                JObject json = new JObject();
+
+                createWebResponse(context, JSON_TYPE, json.ToString());
+            }
+            catch (Exception) { }
+        }
+
+        private void getZones(Microsoft.Owin.IOwinContext context)
+        {
+            try
+            {
+                JObject json = new JObject();
+
+                createWebResponse(context, JSON_TYPE, json.ToString());
+            }
+            catch (Exception) { }
+        }
+
+        private void getGhosts(Microsoft.Owin.IOwinContext context)
+        {
+            try
+            {
+                JObject json = new JObject();
+
                 createWebResponse(context, JSON_TYPE, json.ToString());
             }
             catch (Exception) { }
@@ -108,7 +194,7 @@ namespace Jumper.WebServer
 
         #region Post
 
-        private void postExample(IOwinContext context)
+        private void postUsers(IOwinContext context)
         {
             try
             {
@@ -116,12 +202,120 @@ namespace Jumper.WebServer
             }
             catch (Exception) { }
         }
-        
+
+        private void postGroups(IOwinContext context)
+        {
+            try
+            {
+                JObject jsonRequest = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void postGhosts(IOwinContext context)
+        {
+            try
+            {
+                JObject jsonRequest = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void postMessages(IOwinContext context)
+        {
+            try
+            {
+                JObject jsonRequest = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void postPolicies(IOwinContext context)
+        {
+            try
+            {
+                JObject jsonRequest = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void postZones(IOwinContext context)
+        {
+            try
+            {
+                JObject jsonRequest = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void postRegisters(IOwinContext context)
+        {
+            try
+            {
+                JObject jsonRequest = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
         #endregion
 
         #region Put
 
-        private void putExample(IOwinContext context)
+        private void putUsers(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void putGroups(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void putPolicies(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void putMessages(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void putZones(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void putRegisters(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void putGhosts(IOwinContext context)
         {
             try
             {
@@ -134,7 +328,61 @@ namespace Jumper.WebServer
 
         #region Delete
 
-        private void deleteExample(IOwinContext context)
+        private void deleteMessages(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void deleteUsers(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void deleteGroups(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void deletePolicies(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void deleteZones(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void deleteGhosts(IOwinContext context)
+        {
+            try
+            {
+                JObject request = getJsonFromRequest(context);
+            }
+            catch (Exception) { }
+        }
+
+        private void deleteRegisters(IOwinContext context)
         {
             try
             {
@@ -152,7 +400,7 @@ namespace Jumper.WebServer
         #endregion
 
         #region To DB
-        
+
         #endregion
 
         #endregion

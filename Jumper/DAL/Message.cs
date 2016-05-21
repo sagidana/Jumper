@@ -19,6 +19,7 @@ namespace Jumper.DAL
         public System.Guid UserId { get; set; }
         public int Radius { get; set; }
         public System.DateTime ExpirationTime { get; set; }
+        public string Content { get; set; }
     
         public virtual User Creator { get; set; }
     }

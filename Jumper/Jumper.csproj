@@ -89,10 +89,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\AuthenticationManager.cs" />
+    <Compile Include="BL\AuthorizationManager.cs" />
+    <Compile Include="BL\GcmManager.cs" />
+    <Compile Include="BL\GhostsManager.cs" />
+    <Compile Include="BL\MessagesManager.cs" />
     <Compile Include="DAL\Ghost.cs">
       <DependentUpon>JumperDb.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Group.cs">
+      <DependentUpon>JumperDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Message.cs">
+      <DependentUpon>JumperDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Policy.cs">
       <DependentUpon>JumperDb.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Repositories\GhostRepository.cs" />
@@ -112,24 +123,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JumperDb.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Message.cs">
-      <DependentUpon>JumperDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\Repositories\MessageRepository.cs" />
-    <Compile Include="DAL\Policy.cs">
-      <DependentUpon>JumperDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\Repositories\PolicyRepository.cs" />
     <Compile Include="DAL\Repositories\ZoneRepository.cs" />
+    <Compile Include="DAL\Repositories\UserRepository.cs" />
     <Compile Include="DAL\User.cs">
       <DependentUpon>JumperDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Repositories\UserRepository.cs" />
     <Compile Include="DAL\Zone.cs">
       <DependentUpon>JumperDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebServer\Middlewares\AuthenticationMiddleware.cs" />
     <Compile Include="WebServer\OwinSelfHosting.cs" />
     <Compile Include="WebServer\JumperWebServer.cs" />
     <Compile Include="WebServer\WebResource.cs" />
@@ -180,9 +186,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

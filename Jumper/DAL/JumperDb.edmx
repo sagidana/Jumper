@@ -97,6 +97,7 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Radius" Type="int" Nullable="false" />
     <Property Name="ExpirationTime" Type="datetime" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Ghosts">
     <Key>
@@ -382,6 +383,7 @@
           <Property Name="UserId" Nullable="false" Type="Guid" />
           <Property Name="Radius" Type="Int32" Nullable="false" />
           <Property Name="ExpirationTime" Type="DateTime" Nullable="false" />
+          <Property Name="Content" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="UserMessage">
           <End Type="JumperDb.User" Role="User" Multiplicity="1" />
@@ -457,6 +459,7 @@
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Radius" ColumnName="Radius" />
           <ScalarProperty Name="ExpirationTime" ColumnName="ExpirationTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

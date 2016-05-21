@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Jumper.WebServer.Middlewares;
+using Newtonsoft.Json.Linq;
 using Owin;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +15,8 @@ namespace Jumper.WebServer
         // parameter in the WebApp.Start method.
         public void Configuration(IAppBuilder appBuilder) 
         {
+            appBuilder.Use(typeof(AuthenticationMiddleware));
+
             appBuilder.Run((context) =>
             {
                 if (Resources != null)
@@ -28,7 +31,6 @@ namespace Jumper.WebServer
                         }
                     }
                 }
-
                 return context.Response.WriteAsync(string.Empty);
             });
         } 

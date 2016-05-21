@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/21/2016 00:28:24
--- Generated from EDMX file: c:\Users\sagid\OneDrive\documents\visual studio 2015\Projects\Jumper\Jumper\DAL\JumperDb.edmx
+-- Date Created: 05/21/2016 09:15:14
+-- Generated from EDMX file: C:\Users\sagid\OneDrive\documents\visual studio 2015\Projects\Jumper\Jumper\DAL\JumperDb.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -120,7 +120,8 @@ CREATE TABLE [dbo].[Messages] (
     [Location] geography  NOT NULL,
     [UserId] uniqueidentifier  NOT NULL,
     [Radius] int  NOT NULL,
-    [ExpirationTime] datetime  NOT NULL
+    [ExpirationTime] datetime  NOT NULL,
+    [Content] nvarchar(max)  NOT NULL
 );
 GO
 

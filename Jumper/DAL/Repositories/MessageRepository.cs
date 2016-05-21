@@ -43,5 +43,13 @@ namespace Jumper.DAL.Repositories
                 return user.Messages.ToList();
             }
         }
+
+        public static Message GetMessageById(Guid messageId)
+        {
+            using (var dbContext = new JumperDbContainer())
+            {
+                return dbContext.Messages.Find(messageId);
+            }
+        }
     }
 }
