@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/21/2016 09:15:14
--- Generated from EDMX file: C:\Users\sagid\OneDrive\documents\visual studio 2015\Projects\Jumper\Jumper\DAL\JumperDb.edmx
+-- Date Created: 08/08/2016 22:35:48
+-- Generated from EDMX file: C:\Users\Administrator\Source\Repos\Jumper\Jumper\DAL\JumperDb.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [JumperDatabase];
+USE [SagiTest];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\sagid\OneDrive\documents\visual studio 2015\Projects\Jumper\Jumper\DAL\JumperDb.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Administrator\Source\Repos\Jumper\Jumper\DAL\JumperDb.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

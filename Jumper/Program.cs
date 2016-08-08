@@ -13,7 +13,7 @@ namespace Jumper
         static void Main(string[] args)
         {
             JumperWebServer jumper = new JumperWebServer();
-            jumper.Start("http://10.0.0.8:9900/");
+            jumper.Start("http://10.0.0.5:9900/");
 
             Thread.Sleep(int.MaxValue);
 

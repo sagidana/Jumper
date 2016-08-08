@@ -15,7 +15,7 @@ namespace Jumper.WebServer
         // parameter in the WebApp.Start method.
         public void Configuration(IAppBuilder appBuilder) 
         {
-            appBuilder.Use(typeof(AuthenticationMiddleware));
+            //appBuilder.Use(typeof(AuthenticationMiddleware));
 
             appBuilder.Run((context) =>
             {

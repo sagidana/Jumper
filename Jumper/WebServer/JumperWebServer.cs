@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.Owin;
 using System.Linq;
+using Jumper.DAL;
+using Jumper.DAL.Repositories;
 
 namespace Jumper.WebServer
 {
@@ -128,11 +130,11 @@ namespace Jumper.WebServer
         {
             try
             {
-                JObject json = new JObject();
+                JArray users = convertDbUsersToJson(UserRepository.GetUsers());
 
-                createWebResponse(context, JSON_TYPE, json.ToString());
+                createWebResponse(context, JSON_TYPE, users.ToString());
             }
-            catch (Exception) { }
+            catch (Exception e) { }
         }
 
         private void getMessages(Microsoft.Owin.IOwinContext context)
@@ -396,6 +398,27 @@ namespace Jumper.WebServer
         #region Database Converters
 
         #region To Json
+
+        private JObject convertDbUserToJson(User dbUser)
+        {
+            JObject user = new JObject();
+
+            user.Add("Id", dbUser.Id);
+            user.Add("Name", dbUser.Name);
+            user.Add("Location", dbUser.Location.ToString());
+
+            return user;
+        }
+
+        private JArray convertDbUsersToJson(IEnumerable<User> dbUsers)
+        {
+            JArray arrayUsers = new JArray();
+
+            foreach (var dbUser in dbUsers)
+                arrayUsers.Add(convertDbUserToJson(dbUser));
+
+            return arrayUsers;
+        }
 
         #endregion
 
